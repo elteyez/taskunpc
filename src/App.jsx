@@ -1,12 +1,18 @@
-
-import './App.css'
+import Header from "./components/Header";
+import ListaTareas from "./components/ListaTareas";
+import { tareasIniciales } from "./data/tareas";
 
 function App() {
+  const pendientes = tareasIniciales.filter(t => !t.completada).length;
+
   return (
     <div>
-      <h1>TaskUPC — Mi Gestor Académico</h1>
-      <p>Gestor de tareas para estudiantes de la <Universidad>UPC</Universidad></p>
+      <Header pendientes={pendientes} />
+      <div style={{ padding: "0 24px" }}>
+        <ListaTareas />
+      </div>
     </div>
   );
 }
+
 export default App;
